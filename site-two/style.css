@@ -464,7 +464,8 @@ a:focus-visible {
   .no-print,
   .site-header,
   .guide-section,
-  .site-footer {
+  .site-footer,
+  .swap-instruction {
     display: none !important;
   }
 
