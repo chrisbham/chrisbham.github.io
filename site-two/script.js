@@ -57,9 +57,16 @@ function createDesk(name) {
 
 function renderChart(students) {
   seatingGrid.innerHTML = "";
-  seatingGrid.className = layoutSelect.value;
 
   const layout = layoutSelect.value;
+
+  // Apply the correct CSS classes
+  seatingGrid.className = layout === "ushape"
+    ? "seating-grid ushape"
+    : `seating-grid layout-${layout}`;
+
+  // Reset any custom grid settings from a previous arrangement
+  seatingGrid.style.gridTemplateColumns = "";
 
   if (layout === "rows") {
     students.forEach(name => {
