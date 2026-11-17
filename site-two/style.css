@@ -535,3 +535,38 @@ a:focus-visible {
   outline: 3px solid #3979b9;
   outline-offset: 3px;
 }
+/* =====================================
+   12. SEATING SWAP INSTRUCTION
+===================================== */
+
+.swap-instruction {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  background: var(--soft-blue);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.swap-icon {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.swap-instruction strong {
+  display: block;
+  color: var(--primary-dark);
+  margin-bottom: 0.2rem;
+}
+
+.swap-instruction p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
