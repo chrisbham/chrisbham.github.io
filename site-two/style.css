@@ -510,3 +510,28 @@ a:focus-visible {
   }
 
 }
+
+/* =====================================
+   11. INTERACTIVE SEATING DESKS
+===================================== */
+
+.desk {
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.desk:hover {
+  background: #dce9f5;
+  border-color: var(--accent);
+}
+
+.desk.selected {
+  background: #c5dcf2;
+  border: 2px solid #3979b9;
+  box-shadow: 0 0 0 3px rgba(57, 121, 185, 0.15);
+}
+
+.desk:focus-visible {
+  outline: 3px solid #3979b9;
+  outline-offset: 3px;
+}
