@@ -8,6 +8,7 @@ const shuffleBtn = document.getElementById("shuffle-btn");
 const printBtn = document.getElementById("print-btn");
 
 let currentStudents = [];
+let selectedDeskIndex = null;
 
 function getStudentList() {
   return studentInput.value
@@ -55,17 +56,17 @@ function createDesk(name) {
   return desk;
 }
 
+
 function renderChart(students) {
   seatingGrid.innerHTML = "";
+  selectedDeskIndex = null;
 
   const layout = layoutSelect.value;
 
-  // Apply the correct CSS classes
   seatingGrid.className = layout === "ushape"
     ? "seating-grid ushape"
     : `seating-grid layout-${layout}`;
 
-  // Reset any custom grid settings from a previous arrangement
   seatingGrid.style.gridTemplateColumns = "";
 
   if (layout === "rows") {
@@ -92,6 +93,60 @@ function renderChart(students) {
   else if (layout === "ushape") {
     renderUShape(students);
   }
+
+  enableDeskSwapping();
+}
+
+function enableDeskSwapping() {
+  const desks = seatingGrid.querySelectorAll(".desk");
+
+  desks.forEach((desk, index) => {
+    desk.setAttribute("role", "button");
+    desk.setAttribute("tabindex", "0");
+    desk.setAttribute("aria-label", `Select ${currentStudents[index]} to swap seats`);
+
+    desk.addEventListener("click", () => {
+      handleDeskSelection(index);
+    });
+
+    desk.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        handleDeskSelection(index);
+      }
+    });
+  });
+}
+
+function handleDeskSelection(index) {
+  // First click: select a desk
+  if (selectedDeskIndex === null) {
+    selectedDeskIndex = index;
+
+    seatingGrid.querySelectorAll(".desk")[index]
+      .classList.add("selected");
+
+    return;
+  }
+
+  // Clicking the same desk again cancels selection
+  if (selectedDeskIndex === index) {
+    seatingGrid.querySelectorAll(".desk")[index]
+      .classList.remove("selected");
+
+    selectedDeskIndex = null;
+    return;
+  }
+
+  // Swap the two students
+  [currentStudents[selectedDeskIndex], currentStudents[index]] =
+    [currentStudents[index], currentStudents[selectedDeskIndex]];
+
+  selectedDeskIndex = null;
+
+  // Redraw and save the updated chart
+  renderChart(currentStudents);
+  saveState();
 }
 
 function renderUShape(students) {
