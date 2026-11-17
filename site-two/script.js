@@ -1,109 +1,181 @@
-const namesInput = document.getElementById('student-names');
-const layoutSelect = document.getElementById('layout-select');
-const seatingGrid = document.getElementById('seating-grid');
-const generateBtn = document.getElementById('generate-btn');
-const shuffleBtn = document.getElementById('shuffle-btn');
-const printBtn = document.getElementById('print-btn');
+
+const studentInput = document.getElementById("student-names");
+const layoutSelect = document.getElementById("layout-select");
+const seatingGrid = document.getElementById("seating-grid");
+
+const generateBtn = document.getElementById("generate-btn");
+const shuffleBtn = document.getElementById("shuffle-btn");
+const printBtn = document.getElementById("print-btn");
 
 let currentStudents = [];
 
 function getStudentList() {
-  return namesInput.value
-    .split('\n')
+  return studentInput.value
+    .split("\n")
     .map(name => name.trim())
     .filter(name => name.length > 0);
 }
 
 function saveState() {
-  localStorage.setItem('seating_names', namesInput.value);
-  localStorage.setItem('seating_layout', layoutSelect.value);
-  localStorage.setItem('seating_order', JSON.stringify(currentStudents));
+  localStorage.setItem("seating_names", studentInput.value);
+  localStorage.setItem("seating_layout", layoutSelect.value);
+  localStorage.setItem("seating_order", JSON.stringify(currentStudents));
 }
 
 function loadState() {
-  const savedNames = localStorage.getItem('seating_names');
-  const savedLayout = localStorage.getItem('seating_layout');
-  const savedOrder = localStorage.getItem('seating_order');
+  const savedNames = localStorage.getItem("seating_names");
+  const savedLayout = localStorage.getItem("seating_layout");
+  const savedOrder = localStorage.getItem("seating_order");
 
-  if (savedNames) namesInput.value = savedNames;
-  if (savedLayout) layoutSelect.value = savedLayout;
-  if (savedOrder) {
-    currentStudents = JSON.parse(savedOrder);
+  if (savedNames !== null) {
+    studentInput.value = savedNames;
+  }
+
+  if (savedLayout !== null) {
+    layoutSelect.value = savedLayout;
+  }
+
+  if (savedOrder !== null) {
+    try {
+      currentStudents = JSON.parse(savedOrder);
+    } catch {
+      currentStudents = getStudentList();
+    }
   } else {
     currentStudents = getStudentList();
   }
+
+  renderChart(currentStudents);
+}
+
+function createDesk(name) {
+  const desk = document.createElement("div");
+  desk.className = "desk";
+  desk.textContent = name;
+  return desk;
 }
 
 function renderChart(students) {
+  seatingGrid.innerHTML = "";
+  seatingGrid.className = layoutSelect.value;
+
   const layout = layoutSelect.value;
-  seatingGrid.innerHTML = '';
-  seatingGrid.className = `seating-grid layout-${layout}`;
 
-  if (layout === 'rows') {
-    students.forEach(student => {
-      const desk = document.createElement('div');
-      desk.className = 'desk';
-      desk.textContent = student;
-      seatingGrid.appendChild(desk);
+  if (layout === "rows") {
+    students.forEach(name => {
+      seatingGrid.appendChild(createDesk(name));
     });
-  } else {
-    const groupSize = layout === 'pairs' ? 2 : 4;
-    for (let i = 0; i < students.length; i += groupSize) {
-      const pod = document.createElement('div');
-      pod.className = 'pod-wrapper';
+  }
 
-      const chunk = students.slice(i, i + groupSize);
-      chunk.forEach(student => {
-        const desk = document.createElement('div');
-        desk.className = 'desk';
-        desk.textContent = student;
-        pod.appendChild(desk);
+  else if (layout === "pairs" || layout === "groups") {
+    const groupSize = layout === "pairs" ? 2 : 4;
+
+    for (let i = 0; i < students.length; i += groupSize) {
+      const pod = document.createElement("div");
+      pod.className = "pod-wrapper";
+
+      students.slice(i, i + groupSize).forEach(name => {
+        pod.appendChild(createDesk(name));
       });
 
       seatingGrid.appendChild(pod);
     }
   }
+
+  else if (layout === "ushape") {
+    renderUShape(students);
+  }
+}
+
+function renderUShape(students) {
+  if (students.length === 0) return;
+
+  const bottomCount = Math.ceil(students.length / 3);
+  const sideStudents = students.length - bottomCount;
+
+  const leftCount = Math.ceil(sideStudents / 2);
+  const rightCount = sideStudents - leftCount;
+
+  const sideRows = Math.max(leftCount, rightCount);
+  const columns = bottomCount + 2;
+
+  seatingGrid.style.gridTemplateColumns =
+    `repeat(${columns}, minmax(0, 1fr))`;
+
+  let studentIndex = 0;
+
+  // Left side of the horseshoe
+  for (let row = 1; row <= leftCount; row++) {
+    const desk = createDesk(students[studentIndex++]);
+    desk.style.gridColumn = "1";
+    desk.style.gridRow = String(row);
+    seatingGrid.appendChild(desk);
+  }
+
+  // Right side of the horseshoe
+  for (let row = rightCount; row >= 1; row--) {
+    const desk = createDesk(students[studentIndex++]);
+    desk.style.gridColumn = String(columns);
+    desk.style.gridRow = String(row);
+    seatingGrid.appendChild(desk);
+  }
+
+  // Back of the horseshoe
+  const bottomStudents = students.slice(studentIndex);
+
+  bottomStudents.forEach((name, index) => {
+    const desk = createDesk(name);
+    desk.style.gridColumn = String(index + 2);
+    desk.style.gridRow = String(sideRows + 1);
+    seatingGrid.appendChild(desk);
+  });
 }
 
 function shuffleArray(array) {
-  const copy = [...array];
-  for (let i = copy.length - 1; i > 0; i--) {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return copy;
+
+  return shuffled;
 }
 
-generateBtn.addEventListener('click', () => {
+generateBtn.addEventListener("click", () => {
   currentStudents = getStudentList();
-  saveState();
   renderChart(currentStudents);
+  saveState();
 });
 
-shuffleBtn.addEventListener('click', () => {
-  if (currentStudents.length === 0) currentStudents = getStudentList();
+shuffleBtn.addEventListener("click", () => {
+  if (currentStudents.length === 0) {
+    currentStudents = getStudentList();
+  }
+
   currentStudents = shuffleArray(currentStudents);
-  saveState();
   renderChart(currentStudents);
+  saveState();
 });
 
-layoutSelect.addEventListener('change', () => {
-  if (currentStudents.length === 0) currentStudents = getStudentList();
-  saveState();
+layoutSelect.addEventListener("change", () => {
+  if (currentStudents.length === 0) {
+    currentStudents = getStudentList();
+  }
+
   renderChart(currentStudents);
+  saveState();
 });
 
-printBtn.addEventListener('click', () => {
+printBtn.addEventListener("click", () => {
   window.print();
 });
 
-// Check for Classroomscreen Embed Mode (?embed=true)
-if (window.location.search.includes('embed=true')) {
-  document.querySelector('.site-header').style.display = 'none';
-  document.querySelector('.guide-section').style.display = 'none';
-  document.querySelector('.controls').style.display = 'none';
+// Hide guide and controls when embedded
+if (new URLSearchParams(window.location.search).get("embed") === "true") {
+  document.querySelector(".site-header")?.classList.add("hidden");
+  document.querySelector(".guide-section")?.classList.add("hidden");
+  document.querySelector(".controls")?.classList.add("hidden");
 }
 
-// Load saved chart and render on startup
 loadState();
-renderChart(currentStudents);
