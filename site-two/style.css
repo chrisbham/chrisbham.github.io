@@ -1,4 +1,515 @@
+/* =====================================
+   1. GLOBAL SETTINGS
+===================================== */
 
+:root {
+  --primary: #294b70;
+  --primary-dark: #1e3855;
+  --accent: #6c8eae;
+
+  --background: #f4f6f8;
+  --card-background: #ffffff;
+
+  --text: #263445;
+  --muted: #718096;
+
+  --border: #dce3eb;
+  --soft-blue: #edf3f8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =====================================
+   2. HEADER
+===================================== */
+
+.site-header {
+  background: var(--primary-dark);
+  color: white;
+  padding: 2.5rem 1.5rem 3.5rem;
+}
+
+.header-content {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-link {
+  display: inline-block;
+  color: #d9e5f0;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-link:hover {
+  color: white;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #b8cde0;
+  margin-bottom: 0.75rem;
+}
+
+.site-header h1 {
+  max-width: 850px;
+  margin: 0 auto 1rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.header-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #d5e0eb;
+  font-size: 1.05rem;
+}
+
+
+/* =====================================
+   3. MAIN CONTAINER
+===================================== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+.section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  color: var(--primary-dark);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading > p:last-child {
+  color: var(--muted);
+  max-width: 750px;
+}
+
+
+/* =====================================
+   4. CLASSROOM ARRANGEMENT CARDS
+===================================== */
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.guide-card {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 12px rgba(30, 56, 85, 0.04);
+}
+
+.card-number {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.guide-card h3 {
+  color: var(--primary);
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.guide-card p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+
+.guide-card p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-card strong {
+  color: var(--text);
+}
+
+
+/* =====================================
+   5. BUILDER CONTROLS
+===================================== */
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 12px rgba(30, 56, 85, 0.04);
+}
+
+label {
+  display: block;
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.field-description {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+textarea,
+select {
+  width: 100%;
+  background: white;
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  padding: 0.85rem;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 200px;
+  line-height: 1.7;
+}
+
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.control-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+
+/* =====================================
+   6. BUTTONS
+===================================== */
+
+.btn {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  font-weight: 700;
+  font-size: 0.95rem;
+
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid #9fc2e2;
+  outline-offset: 3px;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn.secondary {
+  background: var(--soft-blue);
+  color: var(--primary-dark);
+  border-color: var(--border);
+}
+
+.btn.secondary:hover {
+  background: #dfeaf3;
+}
+
+.btn.outline {
+  background: white;
+  color: var(--primary);
+  border-color: var(--border);
+}
+
+.btn.outline:hover {
+  background: var(--soft-blue);
+}
+
+
+/* =====================================
+   7. CLASSROOM DISPLAY
+===================================== */
+
+.classroom-board {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+
+  min-height: 250px;
+  box-shadow: 0 3px 12px rgba(30, 56, 85, 0.04);
+}
+
+.board-heading {
+  background: var(--soft-blue);
+  color: var(--primary-dark);
+
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  padding: 0.9rem;
+  border-radius: 7px;
+
+  margin-bottom: 2.5rem;
+}
+
+.board-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.seating-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.layout-rows {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.layout-pairs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.layout-groups {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.desk {
+  background: var(--soft-blue);
+  border: 1px solid #c4d5e5;
+  border-radius: 8px;
+
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  overflow-wrap: anywhere;
+}
+
+.pod-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+
+  padding: 1rem;
+
+  border: 1px dashed #b8c7d6;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+
+/* =====================================
+   8. FOOTER
+===================================== */
+
+.site-footer {
+  background: var(--primary-dark);
+  color: #d5e0eb;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin-bottom: 0.4rem;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* =====================================
+   9. RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 800px) {
+
+  .guide-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .site-header {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .classroom-board {
+    padding: 1rem;
+  }
+
+  .layout-rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .layout-pairs,
+  .layout-groups {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =====================================
+   10. PRINT
+===================================== */
+
+@media print {
+
+  .no-print,
+  .site-header,
+  .guide-section,
+  .site-footer {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .builder-section {
+    margin: 0;
+  }
+
+  .classroom-board {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .board-heading {
+    background: white;
+    border: 1px solid #999;
+    color: black;
+    margin-bottom: 2rem;
+  }
+
+  .desk {
+    background: white;
+    border: 1px solid #777;
+    color: black;
+    break-inside: avoid;
+  }
+
+  .pod-wrapper {
+    background: white;
+    border-color: #777;
+    break-inside: avoid;
+  }
+
+}
 /* ---------------------------------
    U-SHAPE / HORSESHOE ARRANGEMENT
 ---------------------------------- */
