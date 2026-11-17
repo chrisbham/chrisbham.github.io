@@ -1,3 +1,18 @@
-theme: jekyll-theme-minimal
-title: Chrisbham's homepage
-description: Bookmark this to keep an eye on my project updates!
+
+title: My Website
+description: A collection of my projects and work.
+
+# Update this if you are using a project repository
+# rather than a username.github.io repository.
+baseurl: ""
+
+url: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
