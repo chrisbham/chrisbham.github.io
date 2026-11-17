@@ -3,49 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Explore classroom seating arrangements and create interactive seating charts for your classroom.">
+
   <title>Classroom Seating Plan & Arrangement Guide</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header class="site-header">
-    <h1>Classroom Seating Plan & Arrangement Guide</h1>
-    <p>Choose the right desk layout for your lesson goals and generate a printable seating chart.</p>
+    <div class="header-content">
+
+      <a href="../" class="home-link">
+        ← Main Website
+      </a>
+
+      <p class="eyebrow">TEACHER RESOURCE</p>
+
+      <h1>Classroom Seating Plan & Arrangement Guide</h1>
+
+      <p class="header-description">
+        Thoughtful classroom arrangements start with intentional planning.
+        Explore different layouts and create a seating chart that works
+        for your classroom.
+      </p>
+
+    </div>
   </header>
 
   <main class="container">
-    <!-- Section 1: Teacher Guide -->
+
+    <!-- Section 1: Classroom Arrangement Guide -->
+
     <section class="guide-section">
-      <h2>1. Choose Your Arrangement Strategy</h2>
-      <div class="guide-grid">
-        <article class="guide-card">
-          <h3>Traditional Rows</h3>
-          <p><strong>Best for:</strong> Independent work, assessments, and direct instruction.</p>
-          <p><strong>Tip:</strong> Keep wide aisles so you can easily circulate and check student progress.</p>
-        </article>
 
-        <article class="guide-card">
-          <h3>Table Groups (Pods)</h3>
-          <p><strong>Best for:</strong> Collaborative projects, peer tutoring, and group discussions.</p>
-          <p><strong>Tip:</strong> Angle desks slightly toward the front board so no student has their back to you.</p>
-        </article>
-
-        <article class="guide-card">
-          <h3>U-Shape / Horseshoe</h3>
-          <p><strong>Best for:</strong> Whole-class debates, Socratic seminars, and demonstrations.</p>
-          <p><strong>Tip:</strong> Leaves an open center floor for active modeling or quick teacher check-ins.</p>
-        </article>
+      <div class="section-heading">
+        <p class="section-label">PART ONE</p>
+        <h2>Explore Classroom Arrangements</h2>
+        <p>
+          Different arrangements support different learning experiences.
+          Consider your lesson objectives when choosing a layout.
+        </p>
       </div>
+
+      <div class="guide-grid">
+
+        <article class="guide-card">
+          <span class="card-number">01</span>
+          <h3>Traditional Rows</h3>
+
+          <p><strong>Best for:</strong> Independent work, assessments,
+          and direct instruction.</p>
+
+          <p><strong>Teaching tip:</strong> Keep wide aisles so you can
+          easily circulate and check student progress.</p>
+        </article>
+
+        <article class="guide-card">
+          <span class="card-number">02</span>
+          <h3>Table Groups (Pods)</h3>
+
+          <p><strong>Best for:</strong> Collaborative projects,
+          peer tutoring, and group discussions.</p>
+
+          <p><strong>Teaching tip:</strong> Angle desks slightly toward
+          the front board so students can remain engaged with instruction.</p>
+        </article>
+
+        <article class="guide-card">
+          <span class="card-number">03</span>
+          <h3>U-Shape / Horseshoe</h3>
+
+          <p><strong>Best for:</strong> Whole-class debates,
+          Socratic seminars, and demonstrations.</p>
+
+          <p><strong>Teaching tip:</strong> Leave an open centre area
+          for discussion, demonstrations, and teacher interaction.</p>
+        </article>
+
+      </div>
+
     </section>
 
     <!-- Section 2: Interactive Seating Chart Builder -->
+
     <section class="builder-section">
-      <h2>2. Build & Print Your Seating Chart</h2>
-      
+
+      <div class="section-heading">
+        <p class="section-label">PART TWO</p>
+        <h2>Build Your Seating Chart</h2>
+        <p>
+          Enter your students, choose a classroom arrangement,
+          and generate a seating plan you can print.
+        </p>
+      </div>
+
       <div class="controls no-print">
+
         <div class="control-group">
-          <label for="student-names">Student Names (one per line):</label>
-          <textarea id="student-names" rows="6" placeholder="Alex M.&#10;Jordan T.&#10;Samira K.&#10;Liam P.&#10;Maya R.&#10;Noah B.&#10;Chloe W.&#10;Ethan D.">Alex M.
+          <label for="student-names">
+            Student Names
+          </label>
+
+          <p class="field-description">
+            Enter one student per line.
+          </p>
+
+          <textarea
+            id="student-names"
+            rows="10"
+            placeholder="Enter student names..."
+          >Alex M.
 Jordan T.
 Samira K.
 Liam P.
@@ -60,27 +130,62 @@ Mateo C.</textarea>
         </div>
 
         <div class="control-actions">
-          <label for="layout-select">Desk Layout:</label>
+
+          <label for="layout-select">
+            Classroom Arrangement
+          </label>
+
           <select id="layout-select">
-            <option value="rows">Rows (4 Columns)</option>
+            <option value="rows">Traditional Rows (4 Columns)</option>
             <option value="pairs">Pairs (2-Desk Clusters)</option>
-            <option value="groups">Pods (Groups of 4)</option>
+            <option value="groups">Table Groups (Pods of 4)</option>
           </select>
 
-          <button id="generate-btn" class="btn primary">Generate Chart</button>
-          <button id="shuffle-btn" class="btn secondary">Shuffle Seats</button>
-          <button id="print-btn" class="btn outline">Print Chart</button>
+          <div class="button-group">
+            <button id="generate-btn" class="btn primary">
+              Generate Chart
+            </button>
+
+            <button id="shuffle-btn" class="btn secondary">
+              Shuffle Seats
+            </button>
+
+            <button id="print-btn" class="btn outline">
+              Print Chart
+            </button>
+          </div>
+
+          <p class="field-description">
+            Your seating arrangement can be changed at any time.
+          </p>
+
         </div>
+
       </div>
 
       <!-- Classroom Display Area -->
+
       <div class="classroom-board">
-        <div class="front-board">FRONT OF CLASSROOM / WHITEBOARD</div>
+
+        <div class="board-heading">
+          <span class="board-indicator"></span>
+          FRONT OF CLASSROOM / WHITEBOARD
+        </div>
+
         <div id="seating-grid" class="seating-grid layout-rows"></div>
+
       </div>
+
     </section>
+
   </main>
 
+  <footer class="site-footer">
+    <p>Classroom Seating Plan & Arrangement Guide</p>
+    <a href="../">Return to Main Website</a>
+  </footer>
+
   <script src="script.js"></script>
+
 </body>
 </html>
