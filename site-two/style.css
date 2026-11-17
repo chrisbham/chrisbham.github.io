@@ -1,0 +1,209 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #cbd5e1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.site-header {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.site-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+/* Guide Cards */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.guide-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.guide-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.guide-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Builder Controls */
+.controls {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 650px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+textarea, select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.control-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn.secondary {
+  background: #e2e8f0;
+  color: var(--text);
+}
+
+.btn.outline {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Classroom Grid */
+.classroom-board {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.front-board {
+  background: #e2e8f0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.seating-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.layout-rows {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.layout-pairs {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.layout-groups {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.desk {
+  background: #eff6ff;
+  border: 2px solid #93c5fd;
+  border-radius: 6px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pod-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px dashed var(--muted);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+/* Print Styles */
+@media print {
+  .no-print, .site-header, .guide-section, h2 {
+    display: none;
+  }
+  body {
+    background: white;
+  }
+  .classroom-board {
+    border: none;
+    padding: 0;
+  }
+}
