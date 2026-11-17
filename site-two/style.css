@@ -465,7 +465,8 @@ a:focus-visible {
   .site-header,
   .guide-section,
   .site-footer,
-  .swap-instruction {
+  .swap-instruction,
+  .builder-section .section-heading {
     display: none !important;
   }
 
