@@ -535,3 +535,176 @@ footer a {
     break-inside: avoid;
   }
 }
+/* =========================================
+   SECTION 1 — THE WHY
+========================================= */
+
+.intro-section {
+  padding: 85px 0;
+}
+
+.section-label {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 45px;
+  color: var(--terracotta);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.section-label span:first-child {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--terracotta);
+  border-radius: 50%;
+}
+
+.intro-content {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 65px;
+  align-items: start;
+  margin-bottom: 65px;
+}
+
+.intro-content h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.intro-text {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.why-feature {
+  padding: 45px;
+  margin: 55px 0 70px;
+  background: var(--navy);
+  color: #F5F3ED;
+  border-radius: 4px;
+}
+
+.why-feature h2,
+.why-feature h3 {
+  color: #F5F3ED;
+}
+
+.why-feature .eyebrow {
+  color: #D9A18A;
+}
+
+.why-feature p {
+  max-width: 75ch;
+  color: #E1E6E8;
+}
+
+.why-feature p:last-child {
+  margin-bottom: 0;
+}
+
+.principle-heading {
+  margin-bottom: 28px;
+}
+
+.principle-heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.principle-card {
+  padding: 25px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--sage);
+}
+
+.principle-number {
+  display: block;
+  margin-bottom: 25px;
+  color: var(--terracotta);
+  font-family: var(--serif);
+  font-size: 1.8rem;
+}
+
+.principle-card h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+}
+
+.principle-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  margin-bottom: 0;
+}
+
+.why-conclusion {
+  margin-top: 65px;
+  padding: 35px;
+  background: var(--sage-light);
+  border-left: 5px solid var(--sage);
+}
+
+.why-conclusion h3 {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+}
+
+.why-conclusion p {
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--terracotta);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .principle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .intro-section {
+    padding: 55px 0;
+  }
+
+  .why-feature {
+    padding: 28px;
+    margin: 40px 0 50px;
+  }
+
+  .principle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-conclusion {
+    padding: 25px;
+  }
+}
+
