@@ -217,7 +217,33 @@ section {
   background: var(--navy);
   color: white;
 }
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 2px solid var(--navy);
+  border-radius: 5px;
+  background: var(--navy);
+  color: white;
+  font: 600 0.95rem var(--sans);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 
+.button:hover {
+  background: transparent;
+  color: var(--navy);
+}
+
+.button-primary {
+  background: var(--navy);
+  color: white;
+}
+
+.button-light {
+  background: #D5DFD2;
+  border-color: #D5DFD2;
+  color: var(--navy);
+}
 /* Architectural floor-plan illustration */
 
 .hero-illustration {
