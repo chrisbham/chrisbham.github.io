@@ -164,11 +164,11 @@ section {
   padding: 90px 0 85px;
 }
 
-.hero-copy {
+.hero-content {
   min-width: 0;
 }
 
-.hero-copy .lead {
+.hero-description {
   color: var(--muted);
   font-size: 1.2rem;
   max-width: 55ch;
