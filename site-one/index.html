@@ -1,94 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Intentional Spaces: Research-Backed Classroom Seating &amp; Layout Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beyond the Back Row | Classroom Layout & Proximity Playbook</title>
+
+  <meta name="description" content="A research-informed playbook exploring how intentional classroom design can support student engagement, participation, peer relationships, and accessibility.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<nav aria-label="Main">
-<span class="brand">Intentional Spaces</span>
-<a href="#home">Home</a><a href="#research">The Research</a><a href="#playbook">Layout Playbook</a><a href="#choice">Choice vs. Structure</a><a href="#toolkit">Teacher Toolkit</a>
-</nav>
-<main>
 
-<section class="view" id="home">
-<div class="hero">
-<h1>More Than Classroom Management: Designing Seating Plans That Build Belonging &amp; Engagement.</h1>
-<p class="lead">A research-backed playbook helping educators balance student choice, peer relationships, and physical classroom layouts.</p>
-<div class="row"><a class="btn" href="#playbook">Explore Layout Playbook</a><a class="btn alt" href="#toolkit">Download Teacher Toolkit</a></div>
-</div>
-<div class="grid">
-<div class="card"><h3>Foster Friendships &amp; Inclusion</h3><p>How proximity shapes peer connection, and why who sits near whom matters more than most plans assume.</p></div>
-<div class="card"><h3>Match Layout to Learning</h3><p>Align the physical space with what students are doing: listening, discussing, building, or working alone.</p></div>
-<div class="card"><h3>Balance Choice &amp; Structure</h3><p>Move beyond all-or-nothing seating policies with approaches that give students a voice inside a thoughtful frame.</p></div>
-</div>
-<div class="finder" aria-labelledby="qf">
-<h2 id="qf">Quick Scenario Finder</h2>
-<p>Pick your goal for this week. You'll get a layout, a choice level, and one research takeaway.</p>
-<div class="chips" role="group" aria-label="Classroom goal" id="chips"></div>
-<div class="result" id="result" aria-live="polite"><p>Select a goal above to see a recommendation.</p></div>
-</div>
-</section>
+  <header class="site-header">
+    <nav class="navigation" aria-label="Main navigation">
 
-<section class="view" id="research">
-<h1>Why Seating Matters</h1>
-<p class="lead">Four research threads, translated into what you can do on Monday morning.</p>
-<div class="grid">
-<article class="card"><div class="stat">8–10× more likely</div><h3>The 8x Friendship Rule</h3>
-<p>Elementary students seated near non-friends were many times more likely to form new friendships over a semester than students who weren't seated near each other.</p>
-<div class="note"><b>Classroom implication:</b> Seating is a friendship-building tool. Rotate neighbors every few weeks so connections can spread beyond existing friend groups.</div>
-<p class="cite">Faur &amp; Laursen (2022)</p></article>
-<article class="card"><div class="stat">Near-seated peers</div><h3>The Peer Modeling Effect</h3>
-<p>The engagement and achievement of nearby classmates is linked to a student's own daily engagement and achievement, for better or worse.</p>
-<div class="note"><b>Classroom implication:</b> Place engaged, supportive peers near students who struggle to start. Avoid clustering students who are all disengaged.</div>
-<p class="cite">Gremmen et al. (2018)</p></article>
-<article class="card"><div class="stat">Choice can polarize</div><h3>Why Free Choice Can Polarize</h3>
-<p>Left unguided, adolescents tend to choose seatmates with similar achievement, and in lectures many students avoid the back rows, which sorts students by confidence and achievement.</p>
-<div class="note"><b>Classroom implication:</b> Offer choice within boundaries, such as picking from teacher-set zones or pairings, rather than a free-for-all.</div>
-<p class="cite">Gremmen et al. (2017); Wasendorf et al. (2023)</p></article>
-<article class="card"><div class="stat">Learning is social</div><h3>Social Constructivism in Action</h3>
-<p>Vygotsky's Zone of Proximal Development holds that students grow most with a slightly more capable partner. Layouts that put students close to collaborators make that scaffolding easy.</p>
-<div class="note"><b>Classroom implication:</b> Design seating so talk happens naturally, then gradually hand students more say as they show they can manage it.</div>
-<p class="cite">Vygotsky (1978); Minero (2017)</p></article>
-</div>
-</section>
+      <a class="brand" href="#home">
+        <span class="brand-name">BEYOND THE BACK ROW</span>
+        <span class="brand-subtitle">A CLASSROOM DESIGN PLAYBOOK</span>
+      </a>
 
-<section class="view" id="playbook">
-<h1>Layout Playbook</h1>
-<p class="lead">Five layouts, each with its strengths and trade-offs. Diagrams are top-down; the rectangle at the top is the front of the room.</p>
-<div class="grid" id="layouts"></div>
-</section>
+      <div class="nav-links">
+        <a href="#why">The Why</a>
+        <a href="#research">Research</a>
+        <a href="#layouts">Classroom Layouts</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#resources">Resources</a>
+      </div>
 
-<section class="view" id="choice">
-<h1>Choice vs. Structure</h1>
-<p class="lead">Seating is a spectrum. The most effective approach for most classrooms sits in the middle.</p>
-<div class="bar" aria-hidden="true"></div><div class="barlbl"><span>Teacher control</span><span>Student control</span></div>
-<div class="spectrum">
-<div class="tier"><h3>Teacher-Assigned</h3><p>You set every seat.</p><ul class="plain"><li>Fast, predictable, and deliberate about mixing</li><li>Can feel impersonal; little student voice</li></ul><p><b>Best for:</b> new classes, testing, high-stakes transitions.</p></div>
-<div class="tier feat"><span class="badge">The sweet spot</span><h3>Hybrid "Structured Choice"</h3><p>Students share preferences; you design the plan around them.</p><ul class="plain"><li>Use the preference survey, then place students within zones or small groups</li><li>Students pick from 2–3 pre-approved options</li><li>Keep what works; adjust every 3–4 weeks</li></ul><p><b>Best for:</b> most K–12 classrooms most of the time.</p></div>
-<div class="tier"><h3>Student-Selected</h3><p>Students sit where they like.</p><ul class="plain"><li>High autonomy and comfort</li><li>Risk of achievement clustering and isolated students</li></ul><p><b>Best for:</b> short stretches, low-stakes work, or after trust is built.</p></div>
-</div>
-<h2>Inclusion &amp; Support</h2>
-<div class="grid">
-<div class="card"><h3>Bridge Seating Protocol</h3>
-<ul class="plain"><li><b>Identify:</b> Notice a student who is often alone or left out.</li><li><b>Pair:</b> Seat them beside one supportive peer they already know or like.</li><li><b>Widen:</b> Add two classmates they haven't worked with, chosen for kindness and reliability.</li><li><b>Frame:</b> Describe it to the group as "new neighbors this month," never as a fix.</li><li><b>Review:</b> Check in after two weeks and adjust.</li></ul>
-<div class="note"><b>Research link:</b> Proximity to non-friends is a strong driver of new friendships (Faur &amp; Laursen, 2022).</div></div>
-<div class="card"><h3>Neurodivergent &amp; Sensory Needs</h3>
-<ul class="plain"><li>Make accommodations available to everyone: a quiet corner, a seat near the door, a standing option, a seat with a clear sightline.</li><li>Ask privately through the survey, not publicly.</li><li>Avoid the front-row "behavior seat." Vary who sits up front, and let students opt in for visibility.</li><li>Pair sensory needs with peer support, not isolation.</li></ul>
-<div class="note"><b>Check:</b> Could any student guess why a classmate sits where they do? If so, rework the plan.</div></div>
-</div>
-</section>
+    </nav>
+  </header>
 
-<section class="view" id="toolkit">
-<h1>Teacher Toolkit</h1>
-<p class="lead">Copy, paste, adapt, print. Each tool is ready to use.</p>
-<div id="tools"></div>
-</section>
 
-</main>
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <p class="eyebrow">RETHINKING THE SPACES WHERE LEARNING HAPPENS</p>
+
+        <h1>
+          Beyond the
+          <span>Back Row.</span>
+        </h1>
+
+        <p class="hero-description">
+          A research-informed guide to creating classroom environments
+          that support engagement, participation, peer relationships,
+          and accessibility.
+        </p>
+
+        <div class="hero-question">
+          <span class="question-label">THE DRIVING QUESTION</span>
+
+          <p>
+            How can intentional classroom design support student
+            engagement, participation, peer relationships, and accessibility?
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#why">
+            Explore the Playbook <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="text-link" href="#research">
+            Discover the research
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="hero-illustration">
+
+        <div class="illustration-heading">
+          <span>CLASSROOM SPATIAL DESIGN</span>
+          <span>FIG. 01</span>
+        </div>
+
+        <div class="floorplan">
+
+          <div class="floorplan-front">
+            <span>FRONT OF CLASSROOM</span>
+            <div class="whiteboard"></div>
+          </div>
+
+          <div class="floorplan-layout">
+
+            <div class="plan-row">
+              <div class="desk"></div>
+              <div class="desk"></div>
+              <div class="desk"></div>
+            </div>
+
+            <div class="plan-row offset">
+              <div class="desk"></div>
+              <div class="desk"></div>
+              <div class="desk"></div>
+            </div>
+
+            <div class="plan-row">
+              <div class="desk"></div>
+              <div class="desk"></div>
+              <div class="desk"></div>
+            </div>
+
+            <div class="plan-row offset">
+              <div class="desk"></div>
+              <div class="desk"></div>
+              <div class="desk"></div>
+            </div>
+
+          </div>
+
+          <div class="floorplan-footer">
+            <span>INTENTIONAL SPACE</span>
+            <span>MEANINGFUL PARTICIPATION</span>
+          </div>
+
+        </div>
+
+        <p class="illustration-caption">
+          Classroom arrangements shape opportunities for interaction,
+          movement, and learning.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="intro-section" id="why">
+
+      <div class="section-label">
+        <span>01</span>
+        <span>THE WHY</span>
+      </div>
+
+      <div class="intro-content">
+
+        <div>
+          <p class="eyebrow">THE CLASSROOM IS A LEARNING ENVIRONMENT</p>
+
+          <h2>
+            A classroom is more than a collection of desks.
+          </h2>
+        </div>
+
+        <div class="intro-text">
+
+          <p>
+            The physical arrangement of a classroom influences how
+            students interact with one another, engage with their
+            teacher, and participate in learning.
+          </p>
+
+          <p>
+            Traditional rows, collaborative groups, and flexible
+            learning spaces each create different opportunities
+            and challenges. Understanding these differences helps
+            teachers make more intentional decisions about their
+            classroom environments.
+          </p>
+
+          <a class="text-link" href="#research">
+            Explore why classroom design matters →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="principle-grid">
+
+        <article class="principle-card">
+          <span class="principle-number">01</span>
+          <h3>Engagement</h3>
+          <p>
+            Creating opportunities for students to actively
+            participate in learning.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <span class="principle-number">02</span>
+          <h3>Relationships</h3>
+          <p>
+            Recognizing how classroom proximity can shape
+            peer interaction and social connections.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <span class="principle-number">03</span>
+          <h3>Flexibility</h3>
+          <p>
+            Matching classroom arrangements to instructional
+            goals and activities.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <span class="principle-number">04</span>
+          <h3>Accessibility</h3>
+          <p>
+            Reducing physical and environmental barriers
+            to participation.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPLORE THE PLAYBOOK -->
+
+    <section class="explore-section">
+
+      <div class="section-label">
+        <span>EXPLORE</span>
+        <span>THE PLAYBOOK</span>
+      </div>
+
+      <div class="explore-heading">
+        <h2>Four perspectives. One intentional classroom.</h2>
+
+        <p>
+          Explore the research, examine different arrangements,
+          and consider how classroom design can better support
+          the students who occupy these spaces.
+        </p>
+      </div>
+
+
+      <div class="explore-grid">
+
+        <a class="explore-card" href="#research">
+          <span class="explore-number">01 / RESEARCH</span>
+          <h3>What the Evidence Tells Us</h3>
+          <p>
+            Discover what research reveals about seating proximity,
+            peer relationships, and academic engagement.
+          </p>
+          <span class="explore-arrow">Explore research →</span>
+        </a>
+
+        <a class="explore-card" href="#layouts">
+          <span class="explore-number">02 / ARRANGEMENTS</span>
+          <h3>Understanding Classroom Layouts</h3>
+          <p>
+            Compare four classroom arrangements and consider
+            their instructional uses, strengths, and limitations.
+          </p>
+          <span class="explore-arrow">Explore layouts →</span>
+        </a>
+
+        <a class="explore-card" href="#accessibility">
+          <span class="explore-number">03 / INCLUSION</span>
+          <h3>UDL & Inclusive Design</h3>
+          <p>
+            Consider accessibility, sensory needs, movement,
+            and flexible learning environments.
+          </p>
+          <span class="explore-arrow">Explore accessibility →</span>
+        </a>
+
+        <a class="explore-card" href="#resources">
+          <span class="explore-number">04 / TOOLKIT</span>
+          <h3>Quick Reference & Resources</h3>
+          <p>
+            Access practical classroom-design resources,
+            printable guides, and supporting research.
+          </p>
+          <span class="explore-arrow">Explore resources →</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMPANION RESOURCE -->
+
+    <section class="companion-section">
+
+      <div class="companion-content">
+
+        <p class="eyebrow">FROM UNDERSTANDING TO IMPLEMENTATION</p>
+
+        <h2>
+          Ready to put your classroom layout into practice?
+        </h2>
+
+        <p>
+          Once you've considered your classroom's needs and
+          selected an arrangement, use the companion seating-plan
+          generator to create a seating chart for your students.
+        </p>
+
+        <a class="button button-light"
+           href="../site-two/"
+           target="_blank"
+           rel="noopener">
+          Open the Seating Plan Generator →
+        </a>
+
+      </div>
+
+      <div class="companion-number">02</div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="footer-main">
+      <div>
+        <h2>BEYOND THE BACK ROW</h2>
+        <p>
+          Rethinking classroom spaces to support meaningful
+          participation and inclusive learning.
+        </p>
+      </div>
+
+      <a href="#home">Back to top ↑</a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>CLASSROOM LAYOUT & PROXIMITY PLAYBOOK</span>
+      <span>RESEARCH · DESIGN · INCLUSION</span>
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
+
 <footer><div>
 <h2>References</h2>
 <p>Faur, S., &amp; Laursen, B. (2022). Classroom seating proximity and the formation of new friendships in elementary school.</p>
